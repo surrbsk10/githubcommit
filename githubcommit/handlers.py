@@ -59,7 +59,7 @@ class GitCommitHandler(IPythonHandler):
         # client will sent pathname containing git directory; append to git directory's parent
         try:
             if commit_only_source :
-                subprocess.run(['jupyter', 'nbconvert', '--to', 'script', str(os.environ.get('GIT_PARENT_DIR') + "/" + os.environ.get('GIT_REPO_NAME') + filename)])
+                subprocess.run(['jupyter', 'nbconvert', '--to', 'script', str(filename)])
                 filename = filename.replace('ipynb', 'py')
             
             print(repo.git.add(str(os.environ.get('GIT_PARENT_DIR') + "/" + os.environ.get('GIT_REPO_NAME') + filename)))
