@@ -38,7 +38,7 @@ class GitCommitHandler(IPythonHandler):
 
         # get current directory (to return later)
         cwd = os.getcwd()
-
+        print('Surrrrrrrrr')
         # select branch within repo
         try:
             print(f"Git dir nbass:: {git_dir}")
@@ -62,7 +62,7 @@ class GitCommitHandler(IPythonHandler):
                 subprocess.run(['jupyter', 'nbconvert', '--to', 'script', str(filename)])
                 filename = filename.replace('ipynb', 'py')
             
-            print(repo.git.add(str(os.environ.get('GIT_PARENT_DIR') + "/" + os.environ.get('GIT_REPO_NAME') + filename)))
+            print(repo.git.add(str(os.environ.get('GIT_PARENT_DIR') + "/" + filename)))
             print(repo.git.commit( a=False, m="{}\n\nUpdated {}".format(msg, filename) ))
 
         except GitCommandError as e:
