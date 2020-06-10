@@ -41,6 +41,7 @@ class GitCommitHandler(IPythonHandler):
 
         # select branch within repo
         try:
+            print(f"Git dir nbass:: {git_dir}")
             os.chdir(git_dir)
             dir_repo = check_output(['git','rev-parse','--show-toplevel']).strip()
             repo = Repo(dir_repo.decode('utf8'))
